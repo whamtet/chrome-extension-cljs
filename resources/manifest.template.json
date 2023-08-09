@@ -1,0 +1,19 @@
+{
+  "name": "Website Readability",
+  "description": "Estimate your site readability",
+  "version": "0.1",
+  "manifest_version": 3,
+  "permissions": [
+    "storage"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["frame.html", "logo.png"],
+      "matches": ["*://*/*"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {}
+}
