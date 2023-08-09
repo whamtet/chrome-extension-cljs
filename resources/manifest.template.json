@@ -3,9 +3,7 @@
   "description": "Estimate your site readability",
   "version": "0.1",
   "manifest_version": 3,
-  "permissions": [
-    "storage"
-  ],
+  "permissions": ["activeTab", "scripting"],
   "web_accessible_resources": [
     {
       "resources": ["frame.html", "logo.png"],
@@ -15,5 +13,8 @@
   "background": {
     "service_worker": "background.js"
   },
-  "action": {}
+  "action": {
+    "default_title": "Check readability",
+    "default_popup": "popup.html"
+  }
 }

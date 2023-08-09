@@ -2,7 +2,11 @@
   (:require-macros
     [whamtet.build :as build]))
 
-(build/do-spit-manifest)
-
 (enable-console-print!)
-(println "hello")
+
+(build/defexport print []
+  ;; add listener
+  (js/chrome.action.setPopup
+    #js {:popup "popup.html"}))
+
+(build/do-spit-manifest)
