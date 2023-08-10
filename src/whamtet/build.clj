@@ -17,6 +17,9 @@
 (def host
   (if dev? "http://localhost:3000" "https://backend.molloy.link"))
 
+(defmacro get-host []
+  host)
+
 (def exports #{})
 
 (defmacro defexport [name args & body]

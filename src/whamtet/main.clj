@@ -12,4 +12,5 @@
     :output-dir "extension"
     :browser-repl false
     :main 'whamtet.chrome-extension
+    :output-wrapper "if (!window.xx) {xx = true;%s}"
     :watch-fn #(prn (sh "tput" "bel"))}))
