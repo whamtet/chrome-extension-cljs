@@ -4,17 +4,8 @@
   "version": "0.1",
   "manifest_version": 3,
   "permissions": ["activeTab", "scripting"],
-  "web_accessible_resources": [
-    {
-      "resources": ["frame.html", "logo.png"],
-      "matches": ["*://*/*"]
-    }
-  ],
-  "background": {
-    "service_worker": "background.js"
-  },
   "action": {
-    "default_title": "Check readability",
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_title": "Check readability"
   }
 }

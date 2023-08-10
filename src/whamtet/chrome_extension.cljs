@@ -6,7 +6,6 @@
 
 (build/defexport print []
   ;; add listener
-  (js/chrome.action.setPopup
-    #js {:popup "popup.html"}))
+  (println "prints"))
 
 (build/do-spit-manifest)
