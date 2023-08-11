@@ -1,19 +1,21 @@
-let tabId;
+const postToSubframe = s => document.getElementById('subframe').contentWindow.postMessage(s, '*');
 
-chrome.tabs.query({
-    active: true,
-    lastFocusedWindow: true
-}, function(tabs) {
-    if (tabs.length) {
-        tabId = tabs[0].id;
-        chrome.scripting.executeScript({
-            target: {tabId},
-            files: ['main.js', 'whamtet.chrome-extension.listen-for-events.js']
-        });
-    }
-});
+const injectContentScript = () => (
+    chrome.tabs.query({
+        active: true,
+        lastFocusedWindow: true
+    }, function(tabs) {
+        if (tabs.length) {
 
-addEventListener('message', e => {
-    const uuid = e.data;
-    chrome.tabs.sendMessage(tabId, uuid);
-});
+            chrome.runtime.onMessage.addListener(postToSubframe);
+
+            tabId = tabs[0].id;
+            chrome.scripting.executeScript({
+                target: {tabId: tabs[0].id},
+                files: ['main.js', 'whamtet.chrome-extension.notify-text.js']
+            });
+        }
+    })
+);
+
+addEventListener('message', injectContentScript);
