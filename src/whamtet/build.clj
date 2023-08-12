@@ -40,7 +40,11 @@
     (spit-assistant-script name)))
 
 (defn- copy-resources []
-  (doseq [f ["logo.png" "popup.js"]]
+  (doseq [f ["icon16.png"
+             "icon32.png"
+             "icon48.png"
+             "icon128.png"
+             "popup.js"]]
     (io/copy
      (File. (str "resources/" f))
      (File. (str "extension/" f)))))
